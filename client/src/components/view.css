@@ -1,0 +1,33 @@
+.view{
+  display: grid;
+  place-items: center;
+  margin: 60px 35px 0px 35px;
+  }
+.form{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Unbounded', cursive;
+}
+.form > label{
+  margin: 20px 0 20px 0;
+  font-size: x-large;
+}
+.form > input{
+  padding: 13px 46px 13px 5px;
+  border-radius: 13px;
+  border: none;
+  outline-width: 0;
+  width: 300px;
+  /* color: 'rgba(75, 74, 74, 0.514)' */
+}
+.boarder{
+  border: 2px solid rgb(0, 238, 255);
+  padding: 20px;
+}
+/* font-family: 'Hanken Grotesk', sans-serif;
+font-family: 'Unbounded', cursive; */
+  @media only screen and (max-width: 868px) {
+    .view{
+      margin: 115px 1px 0px 0px;
+    }
+  }
