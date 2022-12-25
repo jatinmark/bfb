@@ -23,6 +23,7 @@
 .boarder{
   border: 2px solid rgb(0, 238, 255);
   padding: 20px;
+  background-color: rgba(78, 74, 74, 0.753);
 }
 /* font-family: 'Hanken Grotesk', sans-serif;
 font-family: 'Unbounded', cursive; */
@@ -30,4 +31,8 @@ font-family: 'Unbounded', cursive; */
     .view{
       margin: 115px 1px 0px 0px;
     }
+  }
+
+  .buttons{
+    display: flex;
   }
