@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const newMessage = async (data) => {
     try {
-      await axios.post(`https://4000-jatinmark-crudapp-e4l2b5afxot.ws-us80.gitpod.io/user`, data);
+      await axios.post(`https://crud-backend-l5bq.onrender.com/user`, data);
     } catch (error) {
         console.log('Error while calling newMessage API ', error);
     }
@@ -12,7 +12,7 @@ export const newMessage = async (data) => {
 
 export const getmessages = async ()=>{
   try{
-      let response = await axios.get(`https://4000-jatinmark-crudapp-e4l2b5afxot.ws-us80.gitpod.io/data`);
+      let response = await axios.get(`https://crud-backend-l5bq.onrender.com/data`);
       console.log(response);
       return response.data ;
   }catch(error){
