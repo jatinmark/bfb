@@ -5,8 +5,10 @@ import Button from '@mui/material/Button';
 import ClearIcon from '@mui/icons-material/Clear';
 import Backdrop from '@mui/material/Backdrop';
 import {newMessage ,getmessages } from './Axios';
+import SendIcon from '@mui/icons-material/Send';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import "./view.css"
 
@@ -22,6 +24,7 @@ import "./view.css"
 
 function View() {
 
+  let [select , setselect]  =useState(false);
   let [messages , setmessages] = useState([]);
    const [input , setinput] = useState('');
    const [num , setnum] = useState('');
@@ -82,8 +85,7 @@ const sendmessage = async (e) => {
       width: 290,
       // valueGetter: (params) =>
       //   `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-    },
-    { field: 'Button', headerName: 'Update/delete', width: 120 },
+    }
   ];
   const rows = 
   messages.map((message , i )=> ({ id: i+1, Email: message.Email, Name: message.Name, Phone_Number: message.Phone_number
@@ -131,8 +133,8 @@ const sendmessage = async (e) => {
   return (
     <div className='view'>
       <div className='buttons'>
-  <Button sx={{margin: '0px 35px 50px 35px'}} onClick={handleToggle} variant="contained">+ Add User</Button>
-  <Button sx={{margin: '0px 35px 50px 35px'}} onClick={getmessagedetails} variant="contained">Refresh List</Button>
+  <Button sx={{margin: '0px 0px 50px 0px'}} onClick={handleToggle} variant="contained">+ Add User</Button>
+  <Button sx={{margin: '0px 0px 50px 0px'}} onClick={getmessagedetails} variant="contained">Refresh List</Button>
 
 </div>
 
@@ -164,17 +166,23 @@ const sendmessage = async (e) => {
 
       </Backdrop>
 
-   <Box sx={{ height: 400, width: '100%' }}>
+   <Box sx={{ height: 350, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={5}
+        pageSize={10}
         rowsPerPageOptions={[10]}
-        checkboxSelection
+        checkboxSelection 
         disableSelectionOnClick
         experimentalFeatures={{ newEditingApi: true }}
       />
     </Box>
+    <div className='buttons'>
+    
+  <Button sx={{margin: '35px 0px 50px 0px'}} onClick={handleToggle} variant="contained" disabled> <SendIcon sx={{marginRight: '10px'}}  />send</Button>
+  <Button sx={{margin: '35px 0px 50px 0px'}} onClick={getmessagedetails} variant="contained" disabled > < DeleteIcon sx={{marginRight: '10px'}} />delete</Button>
+
+</div>
     </div>
   )
 }
