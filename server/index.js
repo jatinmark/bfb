@@ -19,10 +19,11 @@ const db = mongoose.connection;
 
 
 const userschema =  mongoose.Schema({
-   Name : String ,
-   Phone_number : Number ,
-   Email: String,
-   Hobbies : String
+  Account_No : Number ,
+  Division : Number ,
+  Country: String,
+  Legacy_No : Number,
+  LegacyDivision : Number
 });
 
 const User = mongoose.model('User',userschema);

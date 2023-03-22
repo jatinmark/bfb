@@ -30,7 +30,7 @@ function View() {
    const [num , setnum] = useState('');
    const [email , setemail] = useState('');
    const [hob , sethob] = useState('');
-
+   const [bob , setbob] = useState('');
    const getmessagedetails = async()=>{
     let data = await getmessages();
    setmessages(data);
@@ -48,37 +48,45 @@ getmessagedetails();
 const sendmessage = async (e) => {
   e.preventDefault();
    messages =  {
-    Name : input  ,
-    Phone_number : num ,
-    Email : email ,
-    Hobbies  : hob
+    Account_No : input  ,
+    Division : num ,
+    Country : email ,
+    Legacy_No  : hob,
+    LegacyDivision : bob ,
+    
  } 
    await newMessage(messages);
 }
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
     {
-      field: 'Name',
-      headerName: 'Name',
+      field: 'Account_No',
+      headerName: 'Account No.',
       width: 200,
       editable: true,
     },
     {
-      field: 'Email',
-      headerName: 'Email',
+      field: 'Division',
+      headerName: 'Division',
+      width: 200,
+      editable: true,
+    },
+    {
+      field: 'Country',
+      headerName: 'Country',
       width: 240,
       editable: true,
     },
     {
-      field: 'Phone_Number',
-      headerName: 'Phone Number',
+      field: 'Legacy_No',
+      headerName: 'Legacy No.',
       type: 'Number',
       width: 130,
       editable: true,
     },
     {
-      field: 'Hobbies',
-      headerName: 'Hobbies',
+      field: 'LegacyDivision',
+      headerName: 'LegacyDivision',
       description: 'This column has a text and is not sortable.',
       editable: true,
       sortable: false,
@@ -87,9 +95,11 @@ const sendmessage = async (e) => {
       //   `${params.row.firstName || ''} ${params.row.lastName || ''}`,
     }
   ];
+
+  
   const rows = 
-  messages.map((message , i )=> ({ id: i+1, Email: message.Email, Name: message.Name, Phone_Number: message.Phone_number
-       , Hobbies: message.Hobbies})) 
+  messages.map((message , i )=> ({ id: i+1, Account_No: message.Account_No, Division: message.Division, Country: message.Country
+       , Legacy_No: message.Legacy_No , LegacyDivision: message.LegacyDivision})) 
       //   { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
   //   { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
   //   { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
@@ -146,14 +156,17 @@ const sendmessage = async (e) => {
        <div className='boarder' >
           <ClearIcon onClick={handleback} />
         <form className='form' method='POST'>
-          <label>Name</label>
-          <input type="text" placeholder='Type the name' value={input} onChange = {(e)=> setinput(e.target.value) } />
-          <label>Phone number </label>
-          <input type="Number" placeholder='Type the Phone number' value={num} onChange = {(e)=> setnum(e.target.value) } />
-          <label>Email</label>
-          <input type="email" placeholder='Type the email' value={email} onChange = {(e)=> setemail(e.target.value) } />
-          <label>Hobbies</label>
-          <input type="text" placeholder='Type the hobbies' value={hob} onChange = {(e)=> sethob(e.target.value) } />
+          <label>Account No.</label>
+          <input type="Number" placeholder='Account No' value={input} onChange = {(e)=> setinput(e.target.value) } />
+          <label>Division </label>
+          <input type="Number" placeholder='Type the Division' value={num} onChange = {(e)=> setnum(e.target.value) } />
+          <label>Country</label>
+          <input type="text" placeholder='Country' value={email} onChange = {(e)=> setemail(e.target.value) } />
+          <label>Legacy No.</label>
+          <input type="Number" placeholder='Type the Legacy No.' value={hob} onChange = {(e)=> sethob(e.target.value) } />
+          <label>LegacyDivision</label>
+          <input type="Number" placeholder='Type the LegacyDivision' value={bob} onChange = {(e)=> setbob(e.target.value) } />
+       
         </form>
         <Button type="submit" onClick = {sendmessage} sx={{margin: '50px 35px 0px 140px'}}  variant="contained"> save</Button>
        </div>
@@ -179,9 +192,7 @@ const sendmessage = async (e) => {
     </Box>
     <div className='buttons'>
     
-  <Button sx={{margin: '35px 0px 50px 0px'}} onClick={handleToggle} variant="contained" disabled> <SendIcon sx={{marginRight: '10px'}}  />send</Button>
-  <Button sx={{margin: '35px 0px 50px 0px'}} onClick={getmessagedetails} variant="contained" disabled > < DeleteIcon sx={{marginRight: '10px'}} />delete</Button>
-
+  
 </div>
     </div>
   )

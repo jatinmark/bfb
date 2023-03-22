@@ -8,9 +8,9 @@
   flex-direction: column;
   font-family: 'Unbounded', cursive;
 }
-.form > label{
-  margin: 20px 0 20px 0;
-  font-size: x-large;
+.form > label {
+  margin: 15px 0 14px 0;
+  font-size: 15px;
 }
 .form > input{
   padding: 13px 46px 13px 5px;
