@@ -55,6 +55,7 @@ const sendmessage = async (e) => {
     LegacyDivision : bob ,
     
  } 
+ handleClick();
    await newMessage(messages);
 }
   const columns = [
